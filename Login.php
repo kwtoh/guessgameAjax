@@ -1,4 +1,5 @@
 <?php
+
 	require 'config.inc';
 	session_save_path("sess");
 	session_start(); 
