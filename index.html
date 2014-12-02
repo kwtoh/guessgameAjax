@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+        <head>
+		<meta charset="utf-8">
+                <script src="jquery-2.1.0.js"></script>
+                <script>
+
+			function Login(username,password){
+				// Ajax request goes here...
+				$.getJSON(
+						"newGame.php",
+						{ 
+							user : username,
+							pass : password 
+						},
+						function(data){islog(data);}
+				);
+			}
+			
+			function islog(value)
+			{
+				if(value)
+				{
+					//Hide Log In
+					//display Task Manager
+				}
+			}
+				
+			// This is executed when the document is ready (the DOM for this document is loaded)
+			$(function(){
+				// Setup all events here and display the appropriate UI
+				$("#guessButton").on("click", function(){guess($("#guessText").val());} );
+				$("#newGameButton").on("click", function(){newGame()} );
+				$("#playForm").hide();
+			});
+		</script>
+	</head>
+	
+	<body>
+		<h3>ToDo Manager</h3>
+		<div id="history"> </div>
+		<form id="login"> 
+			<input type="text" id="guessText" /> 
+			<input id="guessButton" type="button" value="guess" />
+		</form>
+		<div id = "taskmanager"> </div>
+		<div id="status"></div>
+	</body>
+</html>
